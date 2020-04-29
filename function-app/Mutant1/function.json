@@ -1,0 +1,30 @@
+{
+  "scriptFile": "__init__.py",
+  "bindings": [
+    {
+      "authLevel": "anonymous",
+      "type": "httpTrigger",
+      "direction": "in",
+      "name": "req",
+      "methods": [
+        "post"
+      ],
+      "route":"mutant"
+    },
+    {
+      "type": "http",
+      "direction": "out",
+      "name": "$return"
+    },
+    {
+      "type": "cosmosDB",
+      "direction": "out",
+      "name": "outputDocument",
+      "databaseName": "dnaDatabase",
+      "collectionName": "MyDNACollection",
+      "createIfNotExists": "true",
+      "connectionStringSetting": "melidbsql_DOCUMENTDB"
+      
+    }
+  ]
+}

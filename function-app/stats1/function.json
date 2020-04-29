@@ -1,0 +1,29 @@
+{
+  "scriptFile": "__init__.py",
+  "bindings": [
+    {
+      "authLevel": "anonymous",
+      "type": "httpTrigger",
+      "direction": "in",
+      "name": "req",
+      "methods": [
+        "get"
+      ],
+      "route":"stats"
+    },
+    {
+      "type": "http",
+      "direction": "out",
+      "name": "$return"
+    },
+    {
+      "name": "documents",
+      "type": "cosmosDB",
+      "direction": "in",
+      "databaseName": "dnaDatabase",
+      "collectionName": "MyDNACollection",
+      "sqlQuery": "SELECT COUNT(1) AS Count, c.PartitionKey as DnaType FROM c GROUP BY c.PartitionKey",
+      "connectionStringSetting": "melidbsql_DOCUMENTDB"
+  }
+  ]
+}

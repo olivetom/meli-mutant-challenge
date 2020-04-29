@@ -1,0 +1,651 @@
+{
+	"info": {
+		"_postman_id": "8f24c197-863e-4f90-9248-98426b00f47c",
+		"name": "meli-mutant-azure-functions",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "localhost:stats (0,0,0.0)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "ad5b5467-4ece-461c-bf05-fa47a613a08c",
+						"exec": [
+							"pm.test(\"Body is correct\", function () {",
+							"    pm.response.to.have.body(\"{\\\"count_mutant_dna\\\":0,\\\"count_human_dna\\\":0,\\\"ratio\\\":0}\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://mutant-meli.azurewebsites.net/api/stats",
+					"protocol": "https",
+					"host": [
+						"mutant-meli",
+						"azurewebsites",
+						"net"
+					],
+					"path": [
+						"api",
+						"stats"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:mutant1",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "a642f367-2259-4ac9-88bd-4cc7d8c1a459",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "https://mutant-meli.azurewebsites.net/api/mutant?dna=[\"ATGCGA\",\"CAGTGC\",\"TTATGT\",\"AGAAGG\",\"CCCCTA\",\"TCACTG\"]",
+					"protocol": "https",
+					"host": [
+						"mutant-meli",
+						"azurewebsites",
+						"net"
+					],
+					"path": [
+						"api",
+						"mutant"
+					],
+					"query": [
+						{
+							"key": "dna",
+							"value": "[\"ATGCGA\",\"CAGTGC\",\"TTATGT\",\"AGAAGG\",\"CCCCTA\",\"TCACTG\"]"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:stats (1,0,1.0)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "df45cf28-5cf0-41e6-a997-e5955836701a",
+						"exec": [
+							"pm.test(\"Body is correct\", function () {",
+							"    pm.response.to.have.body(\"{\\\"count_mutant_dna\\\":1,\\\"count_human_dna\\\":0,\\\"ratio\\\":1.0}\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://mutant-meli.azurewebsites.net/api/stats",
+					"protocol": "https",
+					"host": [
+						"mutant-meli",
+						"azurewebsites",
+						"net"
+					],
+					"path": [
+						"api",
+						"stats"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:mutant2",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "471c983c-e58d-45eb-acbc-105ab4132cd0",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "https://mutant-meli.azurewebsites.net/api/mutant?dna=[\"TTGCGA\", \"CAGTGC\",\"TTATGT\",\"AGAAGG\",\"CCCCAA\",\"TCACTG\"]",
+					"protocol": "https",
+					"host": [
+						"mutant-meli",
+						"azurewebsites",
+						"net"
+					],
+					"path": [
+						"api",
+						"mutant"
+					],
+					"query": [
+						{
+							"key": "dna",
+							"value": "[\"TTGCGA\", \"CAGTGC\",\"TTATGT\",\"AGAAGG\",\"CCCCAA\",\"TCACTG\"]"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:stats (2,0,2.0)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "5f643d85-60b4-45e3-ac1b-f70175bc9947",
+						"exec": [
+							"pm.test(\"Body is correct\", function () {",
+							"    pm.response.to.have.body(\"{\\\"count_mutant_dna\\\":2,\\\"count_human_dna\\\":0,\\\"ratio\\\":1.0}\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://mutant-meli.azurewebsites.net/api/stats",
+					"protocol": "https",
+					"host": [
+						"mutant-meli",
+						"azurewebsites",
+						"net"
+					],
+					"path": [
+						"api",
+						"stats"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:human1",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "a421992f-3108-4496-8f4e-e0661d78cddb",
+						"exec": [
+							"pm.test(\"Status code is 403\", function () {",
+							"    pm.response.to.have.status(403);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "https://mutant-meli.azurewebsites.net/api/mutant?dna=[\"ATGCGA\",\"CAGTGC\",\"TTATGT\",\"AGATCG\",\"CCCGTA\",\"TCACTG\"]",
+					"protocol": "https",
+					"host": [
+						"mutant-meli",
+						"azurewebsites",
+						"net"
+					],
+					"path": [
+						"api",
+						"mutant"
+					],
+					"query": [
+						{
+							"key": "dna",
+							"value": "[\"ATGCGA\",\"CAGTGC\",\"TTATGT\",\"AGATCG\",\"CCCGTA\",\"TCACTG\"]"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:stats (2,1,2.0)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "c37f19a8-c7a1-4400-a90a-e509af18a7e7",
+						"exec": [
+							"pm.test(\"Body is correct\", function () {",
+							"    pm.response.to.have.body(\"{\\\"count_mutant_dna\\\":2,\\\"count_human_dna\\\":1,\\\"ratio\\\":2.0}\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://mutant-meli.azurewebsites.net/api/stats",
+					"protocol": "https",
+					"host": [
+						"mutant-meli",
+						"azurewebsites",
+						"net"
+					],
+					"path": [
+						"api",
+						"stats"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:human2 (aleatorio)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "2eb27a6f-1b2e-4b87-aff1-d5c61c30d1f3",
+						"exec": [
+							"pm.test(\"Status code is 403\", function () {",
+							"    pm.response.to.have.status(403);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "https://mutant-meli.azurewebsites.net/api/mutant?dna=[\"CGGTTT\",\"CACCGA\",\"AGCAAT\",\"TACTTA\",\"TATGTG\",\"TATGAA\"]",
+					"protocol": "https",
+					"host": [
+						"mutant-meli",
+						"azurewebsites",
+						"net"
+					],
+					"path": [
+						"api",
+						"mutant"
+					],
+					"query": [
+						{
+							"key": "dna",
+							"value": "[\"CGGTTT\",\"CACCGA\",\"AGCAAT\",\"TACTTA\",\"TATGTG\",\"TATGAA\"]"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:stats (2,2,1.0)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "d9678d78-2a2d-4923-b392-65b0827eae43",
+						"exec": [
+							"pm.test(\"Body is correct\", function () {",
+							"    pm.response.to.have.body(\"{\\\"count_mutant_dna\\\":2,\\\"count_human_dna\\\":2,\\\"ratio\\\":1.0}\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://mutant-meli.azurewebsites.net/api/stats",
+					"protocol": "https",
+					"host": [
+						"mutant-meli",
+						"azurewebsites",
+						"net"
+					],
+					"path": [
+						"api",
+						"stats"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:human3 (aleatorio)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "ef0f6ac5-1df9-4cb5-a71c-6d54b0f74d8c",
+						"exec": [
+							"pm.test(\"Status code is 403\", function () {",
+							"    pm.response.to.have.status(403);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "https://mutant-meli.azurewebsites.net/api/mutant?dna=[\"CGGTTT\",\"CACCGA\",\"AGCAAT\",\"TACTTA\",\"TATGTG\",\"TATGAG\"]",
+					"protocol": "https",
+					"host": [
+						"mutant-meli",
+						"azurewebsites",
+						"net"
+					],
+					"path": [
+						"api",
+						"mutant"
+					],
+					"query": [
+						{
+							"key": "dna",
+							"value": "[\"CGGTTT\",\"CACCGA\",\"AGCAAT\",\"TACTTA\",\"TATGTG\",\"TATGAG\"]"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:human4 (aleatorio)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "05caab07-0853-4d83-bccc-356b25952e20",
+						"exec": [
+							"pm.test(\"Status code is 403\", function () {",
+							"    pm.response.to.have.status(403);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "https://mutant-meli.azurewebsites.net/api/mutant?dna=[\"CGGTTT\",\"CACCGA\",\"AGCAAT\",\"TACTTA\",\"TATGTG\",\"TATGAT\"]",
+					"protocol": "https",
+					"host": [
+						"mutant-meli",
+						"azurewebsites",
+						"net"
+					],
+					"path": [
+						"api",
+						"mutant"
+					],
+					"query": [
+						{
+							"key": "dna",
+							"value": "[\"CGGTTT\",\"CACCGA\",\"AGCAAT\",\"TACTTA\",\"TATGTG\",\"TATGAT\"]"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:mutant3",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "23aa474c-420b-48de-96f8-818343265f82",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "https://mutant-meli.azurewebsites.net/api/mutant?dna=[\"AAAAAA\",\"CAGTGC\",\"TTATGT\",\"AGAAGG\",\"CCCCTA\",\"TCACTG\"]",
+					"protocol": "https",
+					"host": [
+						"mutant-meli",
+						"azurewebsites",
+						"net"
+					],
+					"path": [
+						"api",
+						"mutant"
+					],
+					"query": [
+						{
+							"key": "dna",
+							"value": "[\"AAAAAA\",\"CAGTGC\",\"TTATGT\",\"AGAAGG\",\"CCCCTA\",\"TCACTG\"]"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:stats (3,4,0.75)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "d6d9f1f8-d0ee-4040-b24c-d77bd5afc42d",
+						"exec": [
+							"pm.test(\"Body is correct\", function () {",
+							"    pm.response.to.have.body(\"{\\\"count_mutant_dna\\\":3,\\\"count_human_dna\\\":4,\\\"ratio\\\":0.75}\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://mutant-meli.azurewebsites.net/api/stats",
+					"protocol": "https",
+					"host": [
+						"mutant-meli",
+						"azurewebsites",
+						"net"
+					],
+					"path": [
+						"api",
+						"stats"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:Bad Request ZZZZ",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "https://mutant-meli.azurewebsites.net/api/mutant?dna=[\"ZZZZZZ\",\"ZZZZZZ\",\"ZZZZZZ\",\"ZZZZZZ\",\"ZZZZZZ\",\"ZZZZZZ\"]",
+					"protocol": "https",
+					"host": [
+						"mutant-meli",
+						"azurewebsites",
+						"net"
+					],
+					"path": [
+						"api",
+						"mutant"
+					],
+					"query": [
+						{
+							"key": "dna",
+							"value": "[\"ZZZZZZ\",\"ZZZZZZ\",\"ZZZZZZ\",\"ZZZZZZ\",\"ZZZZZZ\",\"ZZZZZZ\"]"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:Bad Request String",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "ce43a70f-4583-4a96-856a-03d266d90d6f",
+						"exec": [
+							"pm.test(\"Status code is 400\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "https://mutant-meli.azurewebsites.net/api/mutant?dna=[\"ZZZZZZ\",\"ZZZZZZ\",\"ZZZZZZ\",\"ZZZZZZ\",\"ZZZZZZ\",\"ZZZZZZ\"]",
+					"protocol": "https",
+					"host": [
+						"mutant-meli",
+						"azurewebsites",
+						"net"
+					],
+					"path": [
+						"api",
+						"mutant"
+					],
+					"query": [
+						{
+							"key": "dna",
+							"value": "[\"ZZZZZZ\",\"ZZZZZZ\",\"ZZZZZZ\",\"ZZZZZZ\",\"ZZZZZZ\",\"ZZZZZZ\"]"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:Bad Request Param Name",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "573ff059-db3a-4f12-b8d8-2f89d9abb33d",
+						"exec": [
+							"pm.test(\"Status code is 400\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "https://mutant-meli.azurewebsites.net/api/mutant?mmmmmmmmm=[\"ZZZZZZ\",\"ZZZZZZ\",\"ZZZZZZ\",\"ZZZZZZ\",\"ZZZZZZ\",\"ZZZZZZ\"]",
+					"protocol": "https",
+					"host": [
+						"mutant-meli",
+						"azurewebsites",
+						"net"
+					],
+					"path": [
+						"api",
+						"mutant"
+					],
+					"query": [
+						{
+							"key": "mmmmmmmmm",
+							"value": "[\"ZZZZZZ\",\"ZZZZZZ\",\"ZZZZZZ\",\"ZZZZZZ\",\"ZZZZZZ\",\"ZZZZZZ\"]"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:Bad Request No Params",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "09199547-f9a7-4378-8e7d-ab5adf8633e0",
+						"exec": [
+							"pm.test(\"Status code is 400\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "https://mutant-meli.azurewebsites.net/api/mutant",
+					"protocol": "https",
+					"host": [
+						"mutant-meli",
+						"azurewebsites",
+						"net"
+					],
+					"path": [
+						"api",
+						"mutant"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}

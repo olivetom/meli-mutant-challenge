@@ -1,0 +1,12 @@
+/Users/moliveto/Projects/meli/obj/Debug/netcoreapp3.1/meli.csprojAssemblyReference.cache
+/Users/moliveto/Projects/meli/obj/Debug/netcoreapp3.1/meli.csproj.CoreCompileInputs.cache
+/Users/moliveto/Projects/meli/obj/Debug/netcoreapp3.1/meli.AssemblyInfoInputs.cache
+/Users/moliveto/Projects/meli/obj/Debug/netcoreapp3.1/meli.AssemblyInfo.cs
+/Users/moliveto/Projects/meli/bin/Debug/netcoreapp3.1/meli.deps.json
+/Users/moliveto/Projects/meli/bin/Debug/netcoreapp3.1/meli.runtimeconfig.json
+/Users/moliveto/Projects/meli/bin/Debug/netcoreapp3.1/meli.runtimeconfig.dev.json
+/Users/moliveto/Projects/meli/bin/Debug/netcoreapp3.1/meli.dll
+/Users/moliveto/Projects/meli/bin/Debug/netcoreapp3.1/meli.pdb
+/Users/moliveto/Projects/meli/obj/Debug/netcoreapp3.1/meli.dll
+/Users/moliveto/Projects/meli/obj/Debug/netcoreapp3.1/meli.pdb
+/Users/moliveto/Projects/meli/obj/Debug/netcoreapp3.1/meli.genruntimeconfig.cache
