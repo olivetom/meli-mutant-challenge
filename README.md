@@ -1,7 +1,3 @@
-
-
-![image-20200429174338104](/Users/moliveto/Library/Application Support/typora-user-images/image-20200429174338104.png)
-
 # **Examen Mercadolibre**
 
 Archivo con requerimientos: *Challenge MeLi BE- Mutantes.pdf*
