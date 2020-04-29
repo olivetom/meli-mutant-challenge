@@ -1,7 +1,5 @@
 
 
-![image-20200429174338104](/Users/moliveto/Library/Application Support/typora-user-images/image-20200429174338104.png)
-
 # **Examen Mercadolibre**
 
 Archivo con requerimientos: *Challenge MeLi BE- Mutantes.pdf*
@@ -25,6 +23,7 @@ Para la base de datos se utilizo una API SQL con una dos Collections donde se al
 **URLs REST API**
 
   * URL Base: https://mutant-meli.azurewebsites.net/ 
-  * URL Mutant Endpoint: https://mutant-meli.azurewebsites.net/api/mutant
-  * URL Stats Endpoint: https://mutant-meli.azurewebsites.net/api/stats
+  * URL Mutant Endpoint: https://mutant-meli.azurewebsites.net/api/mutant [POST]
+  * URL Stats Endpoint: https://mutant-meli.azurewebsites.net/api/stats [GET]
 
+Nota: no se retorna error cuando se utiliza el método equivocado en los endpoint.
