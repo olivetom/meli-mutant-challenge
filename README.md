@@ -1,4 +1,6 @@
-![image-20200429160712582](/Users/moliveto/Library/Application Support/typora-user-images/image-20200429160712582.png)
+
+
+![image-20200429174338104](/Users/moliveto/Library/Application Support/typora-user-images/image-20200429174338104.png)
 
 # **Examen Mercadolibre**
 
@@ -6,25 +8,19 @@ Archivo con requerimientos: *Challenge MeLi BE- Mutantes.pdf*
 
 Fecha: 29/Abril/2020
 
-Archivo con Arquitectura:  *Arquitectura Mutantes.pdf*
+#### Descripción de la Solución 
 
-#### *Descripción de la Solución 
+La solución es Cloud Native basada en Azure Functions (https://azure.microsoft.com/en-us/services/functions/) y Azure CosmosDB (https://azure.microsoft.com/en-us/services/cosmos-db/). Ambos servicios permiten implementar una arquitectura Event-Driven.
 
+Para el Web API (/mutant, /stats), se utilizó un runtime Python sobre Linux que es alocado cuando recibe tráfico, y es elástico escalando horizontalmente a demanda. En caso de que la API no sea utilizada durante 20 minutos pasa a un estado Cold (el warmup demora unos milisegundos).
 
-
-
-
-![image-20200429161800959](/Users/moliveto/Library/Application Support/typora-user-images/image-20200429161800959.png)
-
-
+Para la base de datos se utilizo una API SQL con una dos Collections donde se almacenan los ADN mutantes y humanos como documentos.
 
 **Directorios**
 
-		* *mutant-algorithm-python*: Notebook con el algoritmo en Python con UnitTests para el desafío Nivel 1
-		* *function-app*: Azure Serverless API con la solución a los desafíos Nivel 2 y 2
-		* *azure_api_tests*: Azure API Tests para testear con *newman*
-		* 
-		* 
+* *function-app*: Azure Serverless API con la solución a los desafíos Nivel 2 y 2
+* *azure_api_tests*: Azure API Tests para testear con *newman* 
+* *mutant-algorithm-python*: Notebook con el algoritmo en Python con UnitTests para el desafío Nivel 1
 
 **URLs REST API**
 
