@@ -43,3 +43,9 @@ Para atender el requerimiento de escalabilidad de 1M req/sec, la API tiene dos c
 ​		https://docs.microsoft.com/en-us/azure/azure-functions/functions-best-practices#scalability-best-practices
 
 2) La *Base de Datos* es una base de datos documental con API SQL y particionada para mutantes y humanos. Para el row_id dentro de una partición se usan 60 bytes. Esto significa que puede almacenar aproximadamente 10^144 ADNs mutantes + 10^144 ADN humanos.
+
+
+
+**GITHUB**
+
+https://github.com/olivetom/meli-mutant-challenge
