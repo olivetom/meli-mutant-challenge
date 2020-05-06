@@ -49,3 +49,7 @@ Para atender el requerimiento de escalabilidad de 1M req/sec, la API tiene dos c
 **GITHUB**
 
 https://github.com/olivetom/meli-mutant-challenge
+
+6/Abril/2020
+
+* Added C# Stateful Orchestrator Workflow as an alternative API endpoint located at https://meli-stats-orchestrator.azurewebsites.net/api/stats
