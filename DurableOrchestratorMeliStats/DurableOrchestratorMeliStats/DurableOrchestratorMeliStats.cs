@@ -27,10 +27,14 @@ namespace DurableOrchestratorMeliStats
         {
             var outputs = new List<string>();
 
-            outputs.Add(await context.CallActivityAsync<string>("DurableOrchestratorMeliStats_Hello", "mutant"));
-            outputs.Add(await context.CallActivityAsync<string>("DurableOrchestratorMeliStats_Hello", "human"));
+            var task1 = await context.CallActivityAsync<string>("DurableOrchestratorMeliStats_Hello", "mutant");
+            var task2 = await context.CallActivityAsync<string>("DurableOrchestratorMeliStats_Hello", "human");
 
-            // returns ["Hello Tokyo!", "Hello Seattle!", "Hello London!"]
+            outputs.Add(task1);
+            outputs.Add(task2);
+
+            //Task.WhenAll or Task.WhenAny
+
             return outputs;
         }
 
@@ -83,27 +87,34 @@ namespace DurableOrchestratorMeliStats
 
             log.LogInformation($"Started orchestration with ID = '{instanceId}'.");
 
-            TimeSpan timeout = GetTimeSpan(req, Timeout) ?? TimeSpan.FromSeconds(10);
-            TimeSpan retryInterval = GetTimeSpan(req, RetryInterval) ?? TimeSpan.FromSeconds(2);
 
-            _ = await starter.WaitForCompletionOrCreateCheckStatusResponseAsync(
-                req,
-                instanceId,
-                timeout,
-                retryInterval);
+            return starter.CreateCheckStatusResponse(req, instanceId);
 
-            DurableOrchestrationStatus durableOrchestrationStatus = await starter.GetStatusAsync(instanceId);
+            //Code below is to wait a response 10 secs and check 10/2 times
+            //If the orchestration instance completes within the specified timeout,
+            //then the HTTP response payload will contain the output of the orchestration instance
+            // formatted as JSON. However, if the orchestration does not complete within the specified timeout,
+            //then the HTTP response will be identical to that of the 
+            // CreateCheckStatusResponse(HttpRequestMessage, String) API.
 
-            //IList<string> mutantCount = durableOrchestrationStatus.Output["count"].Select(t => (string)t).ToList();
-            //log.LogInformation($"____________________________ '{mutantCount[0]}'.");
+            //TimeSpan timeout = GetTimeSpan(req, Timeout) ?? TimeSpan.FromSeconds(10);
+            //TimeSpan retryInterval = GetTimeSpan(req, RetryInterval) ?? TimeSpan.FromSeconds(2);
+
+            //_ = await starter.WaitForCompletionOrCreateCheckStatusResponseAsync(
+            //    req,
+            //    instanceId,
+            //    timeout,
+            //    retryInterval);
+
+            //DurableOrchestrationStatus durableOrchestrationStatus = await starter.GetStatusAsync(instanceId);
 
 
-            HttpResponseMessage httpResponseMessage = new HttpResponseMessage(HttpStatusCode.OK)
-            {
-                Content = new StringContent(JsonConvert.SerializeObject(durableOrchestrationStatus.Output))
-            };
+            //HttpResponseMessage httpResponseMessage = new HttpResponseMessage(HttpStatusCode.OK)
+            //{
+            //    Content = new StringContent(JsonConvert.SerializeObject(durableOrchestrationStatus.Output))
+            //};
 
-            return httpResponseMessage;
+            //return httpResponseMessage;
         }
 
         private static TimeSpan? GetTimeSpan(HttpRequestMessage request, string queryParameterName)
