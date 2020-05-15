@@ -3,6 +3,8 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "meli", "meli.csproj", "{C37D9D70-45B9-4004-96E5-8D6DCF711951}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MeliMutant.Tests", "..\MeliMutant.Tests\MeliMutant.Tests.csproj", "{77B9C027-2C01-46AD-A4FA-F433A0C353F6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -13,5 +15,9 @@ Global
 		{C37D9D70-45B9-4004-96E5-8D6DCF711951}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C37D9D70-45B9-4004-96E5-8D6DCF711951}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C37D9D70-45B9-4004-96E5-8D6DCF711951}.Release|Any CPU.Build.0 = Release|Any CPU
+		{77B9C027-2C01-46AD-A4FA-F433A0C353F6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{77B9C027-2C01-46AD-A4FA-F433A0C353F6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{77B9C027-2C01-46AD-A4FA-F433A0C353F6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{77B9C027-2C01-46AD-A4FA-F433A0C353F6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
