@@ -3,43 +3,43 @@ import numpy as np
 import itertools as it
 import json
 import azure.functions as func
+import sys
 
 def main(req: func.HttpRequest, outputDocument: func.Out[func.Document]) -> func.HttpResponse:
     logging.info('Python HTTP trigger function processed a request.')
     
+    error_msg = "mutant dna on the query string or in the request body is required: { \"dna\" : [\"AAAAA\", ...]}"
     dna = req.params.get('dna')
-    if not dna:
+    try:
+        dna = json.loads(dna)
+        dnaStringList = [value for value in dna]
+        dna = [list(s) for s in dnaStringList]
+    except: 
+        logging.info("non existent or exception decoding query dna array")
+
+    if not dna: 
         try:
-            req_body = req.get_json()
-        except ValueError:
-            pass
-        else:
-            dna = req_body.get('dna')
+            dnaStringList = req.get_json().get('dna')
+            dna = [list(s) for s in dnaStringList]
+            logging.info("success decoding body dna array")
+        except:
+            logging.info("exception decoding body dna array")
 
     if dna:
+        logging.info(f"dna:{dna} dnatype:{type(dna)}")
         try:
-            dnaData = json.loads(dna)
-            dnaData = [value for value in dnaData]
-            dnaData = [list(s) for s in dnaData]
+            matches = mutant_count(np.array(dna))
         except:
             return func.HttpResponse(
-             "Please pass mutant dna on the query string or in the request body",
-             status_code=400
-            )
-
-        try:
-            matches = mutant_count(np.array(dnaData))
-        except:
-            return func.HttpResponse(
-             "Please pass mutant dna on the query string or in the request body",
+             error_msg,
              status_code=500
             )
        
-        logging.info(f'DNA:{dnaData} match count:{matches}.')
+        logging.info(f'Success: dna:{dna} match count:{matches}.')
 
         if (matches == None):
             return func.HttpResponse(
-                "Please pass mutant dna on the query string or in the request body",
+                error_msg,
                 status_code=400
             )
         
@@ -52,9 +52,9 @@ def main(req: func.HttpRequest, outputDocument: func.Out[func.Document]) -> func
 
         data = {
                 "PartitionKey": pk,
-                "id": dna,
-                "RowKey": dna,
-                "dna": dna
+                "id": str(dnaStringList),
+                "RowKey": str(dnaStringList),
+                "dna": str(dnaStringList)
             }
 
         outputDocument.set(func.Document.from_dict(data))
@@ -63,7 +63,7 @@ def main(req: func.HttpRequest, outputDocument: func.Out[func.Document]) -> func
             )
     else:
         return func.HttpResponse(
-             "Please pass mutant dna on the query string or in the request body",
+             error_msg,
              status_code=400
         )
 
