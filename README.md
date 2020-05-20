@@ -45,7 +45,6 @@ Para atender el requerimiento de escalabilidad de 1M req/sec, la API tiene dos c
 2) La *Base de Datos* es una base de datos documental con API SQL y particionada para mutantes y humanos. Para el row_id dentro de una partición se usan 60 bytes. Esto significa que puede almacenar aproximadamente 10^144 ADNs mutantes + 10^144 ADN humanos.
 
 
-
 **GITHUB**
 
 https://github.com/olivetom/meli-mutant-challenge
@@ -53,3 +52,7 @@ https://github.com/olivetom/meli-mutant-challenge
 6/Abril/2020
 
 * Added C# Stateful Orchestrator Workflow as an alternative API endpoint located at https://meli-stats-orchestrator.azurewebsites.net/api/stats
+
+19/Mayo/2020
+
+* Added support of request body json dna string array. Dna should be in the form: {"dna":["ATGCGA","CAGTGC","TTATGT","AGAAGG","CCCCTA","TCACTG"]}. Tests modified accordingly.
