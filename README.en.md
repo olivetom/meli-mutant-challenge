@@ -1,4 +1,4 @@
-###### Spanish version: [README.md] (https://github.com/olivetom/meli-mutant-challenge/README.md)
+###### Spanish version: [README.md] (https://github.com/olivetom/meli-mutant-challenge/blob/master/README.md)
 
 # ** Mercadolibre Exam **
 
